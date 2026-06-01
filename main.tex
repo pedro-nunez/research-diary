@@ -1,0 +1,113 @@
+\documentclass[12pt]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.markings}
+\usepackage{alertmessage}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  maxnames=10,
+  maxalphanames=10]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{hyperref}
+\urlstyle{same}
+\usepackage[noabbrev]{cleveref}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{setting}[theorem]{Setting}
+
+\titleformat{\chapter}
+{\normalfont\Huge\bfseries}{}{1em}{}
+\titleformat{\section}
+{\normalfont\small\bfseries}{}{}{}
+
+\sloppy
+\makeatletter
+\hypersetup{
+  pdfauthor={[Author]},
+  pdftitle={Research Diary},
+  colorlinks,
+  linkcolor=[rgb]{0.2,0.2,0.6},
+  citecolor=[rgb]{0.2,0.2,0.6},
+  urlcolor=[rgb]{0.2,0.2,0.6}
+}
+\makeatother
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+\newcommand{\ptag}[1]{\vspace{1mm}\textbf{\small[\uppercase{#1}]}}
+% To tag the project currently being talked about.
+
+\newcommand{\newtopic}{%
+  \vspace{-2mm}
+  {\color{teal}
+  \begin{center}
+  --------- --------- ---------
+  \end{center}
+  }
+  \vspace{-2mm}
+  }
+% To change the topic and make this visible.
+
+\thispagestyle{empty}
+
+\title{Research Diary}
+\author{[Author]}
+\date{\today}
+\begin{center}
+    \Huge{Research Notes}
+
+    \huge{[Academic Year]}
+        
+    \vspace{0.4cm}
+    \large
+    [Author]
+       
+    \vspace{0.9cm}
+\end{center}
+
+\vspace{0.9cm}
+Current projects:
+\begin{itemize}
+  \item \ptag{p1}:~[Brief description of first project.]
+  \item \ptag{p2}:~[Brief description of second project.]
+  \item \ptag{p3}:~[Brief description of third project.]
+\end{itemize}
+\vspace{0.9cm}
+
+\vfill
+\begin{center}
+  (Last updated on~\today.)
+\end{center}
+
+\pagestyle{plain}
+
+% Monthly files:
+
+\printbibliography
+\vfill
+
+\end{document}
