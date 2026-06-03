@@ -24,6 +24,11 @@
 \urlstyle{same}
 \usepackage[noabbrev]{cleveref}
 
+% Replace these values when setting up the diary.
+\newcommand{\DiaryAuthor}{[Author Name]}
+\newcommand{\DiaryAcademicYear}{[Academic Year]}
+\newcommand{\DiaryTitle}{[Diary Title]}
+
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -45,8 +50,8 @@
 \sloppy
 \makeatletter
 \hypersetup{
-  pdfauthor={[Author]},
-  pdftitle={Research Diary},
+  pdfauthor={\DiaryAuthor},
+  pdftitle={\DiaryTitle},
   colorlinks,
   linkcolor=[rgb]{0.2,0.2,0.6},
   citecolor=[rgb]{0.2,0.2,0.6},
@@ -74,17 +79,14 @@
 
 \thispagestyle{empty}
 
-\title{Research Diary}
-\author{[Author]}
-\date{\today}
 \begin{center}
-    \Huge{Research Diary}
+    \Huge{\DiaryTitle}
 
-    \huge{[Academic Year]}
+    \huge{\DiaryAcademicYear}
         
     \vspace{0.4cm}
     \large
-    [Author]
+    \DiaryAuthor
        
     \vspace{0.9cm}
 \end{center}
