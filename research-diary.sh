@@ -89,12 +89,13 @@ rd() {
     } >> "$month_file" || return 1
   fi
 
-  cd "$months_dir" || return 1
-
   command -v vim >/dev/null || {
     printf 'Error: vim was not found.\n' >&2
     return 1
   }
 
-  vim '+normal! Go' '+startinsert' "$month_file"
+  (
+    cd "$months_dir" || exit 1
+    vim '+normal! Go' '+startinsert' "${current_month}.tex"
+  )
 }
