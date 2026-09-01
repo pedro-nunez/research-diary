@@ -11,11 +11,11 @@ rd() {
 
   local current_month month_title current_date ref_date
 
-  current_month=$(date +%Y-%m)
-  month_title="$(date '+%B %Y')"
-  echo "Current month is ${current_month}, i.e., ${month_title}."
+  IFS='|' read -r current_month month_title current_date ref_date < <(
+    date '+%Y-%m|%B %Y|%Y-%m-%d (%A)|%Y-%m-%d'
+  )
 
-  current_date="$(date -I) ($(date +%A))"
+  echo "Current month is ${current_month}, i.e., ${month_title}."
   echo "Current date: ${current_date}."
 
   # ref_date is the current date without day of the week, for cross-referencing.
