@@ -46,7 +46,11 @@ rd() {
     # Edit a temporary file first for safety.
     tmp="$(mktemp "${main_file}.tmp.XXXXXX")" || return 1
 
-    awk -v new="$include_line" '
+    INCLUDE_LINE="$include_line" awk '
+      BEGIN {
+        new = ENVIRON["INCLUDE_LINE"]
+      }
+      
       {
         lines[NR] = $0
 
