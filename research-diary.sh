@@ -41,7 +41,7 @@ rd() {
   # Include month file in main.tex if necessary.
   if ! grep -Fxq "$include_line" "$main_file"; then
     # Edit a temporary file first for safety.
-    tmp="$(mktemp)" || return 1
+    tmp="$(mktemp "${main_file}.tmp.XXXXXX")" || return 1
 
     awk -v new="$include_line" '
       {
@@ -73,7 +73,9 @@ rd() {
           exit 1
         }
       }
-    ' "$main_file" > "$tmp" && mv "$tmp" "$main_file" || {
+    ' "$main_file" > "$tmp" &&
+    chmod --reference="$main_file" "$tmp" &&
+    mv "$tmp" "$main_file" || {
       rm -f "$tmp"
       return 1
     }
