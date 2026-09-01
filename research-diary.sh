@@ -35,7 +35,7 @@ rd() {
     return 1
   fi
 
-  # Create month file the frist time this month is used.
+  # Create month file the first time this month is used.
   if [[ ! -f "$month_file" ]]; then
     printf '%s\n\n' "\\chapter{${month_title}}" > "$month_file" || return 1
   fi
