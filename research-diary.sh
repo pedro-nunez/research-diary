@@ -25,6 +25,7 @@ rd() {
   month_file="${months_dir}/${current_month}.tex"
   include_line="\\include{months/${current_month}}"
   date_heading="\\section*{\\color{teal}${current_date}}"
+  date_label="\\phantomsection\\label{day:${ref_date}}"
 
   # Create months folder unless it already exists, and return from the function with failure status 1 if it is not possible to create the directory for some reason.
   mkdir -p "$months_dir" || return 1
@@ -84,11 +85,11 @@ rd() {
   fi
 
   # Add today's heading if necessary.
-  if ! grep -Fxq "$date_heading" "$month_file"; then
+  if ! grep -Fxq "$date_label" "$month_file"; then
     {
       printf '\n'
       printf '%s\n' "$date_heading"
-      printf '%s\n' "\\phantomsection\\label{day:${ref_date}}"
+      printf '%s\n' "$date_label"
       printf '\n'
     } >> "$month_file" || return 1
   fi
