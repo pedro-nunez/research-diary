@@ -3,9 +3,11 @@
 rd() {
   # Function to open and start writing on the research diary, adding the date if necessary.
   
-  local diary_dir="${HOME}/git/research-diary"
-  local months_dir="${diary_dir}/months"
-  local main_file="${diary_dir}/main.tex"
+  local diary_dir months_dir main_file
+
+  diary_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)" || return 1
+  months_dir="${diary_dir}/months"
+  main_file="${diary_dir}/main.tex"
 
   local current_month month_title current_date ref_date
 
